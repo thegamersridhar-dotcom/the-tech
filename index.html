@@ -4,66 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WizOS</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
-  <main id="wizos" class="wizos-shell">
-    <section id="stage0" class="stage stage-welcome active" aria-label="WizOS welcome portal">
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+
+  <main class="wizos-shell" aria-label="WizOS fluid web operating system">
+    <section id="landingStage" class="stage landing-stage is-active" aria-hidden="false">
       <div class="portal-card glass">
         <p class="eyebrow">Custom Fluid Web Operating System</p>
         <h1>WizOS</h1>
-        <p class="portal-copy">Slide-up multitasking, transparent launcher shortcuts, and heavy-duty system apps in one responsive glass workspace.</p>
-        <div class="quick-previews" aria-label="Quick app previews">
-          <article><span>📈</span><strong>Stocks Shower</strong><small>Live market console</small></article>
-          <article><span>🧬</span><strong>Transcoder</strong><small>Local file engine</small></article>
-          <article><span>🔌</span><strong>Micro Lab</strong><small>Blueprint + code</small></article>
+        <p class="portal-copy">A slide-up multitasking workspace with transparent app shortcuts, glass panels, live tools, and local-first engineering utilities.</p>
+        <div class="quick-previews" aria-label="Featured app previews">
+          <article><span>📈</span><strong>Stocks Shower</strong><small>Global Market Terminal</small></article>
+          <article><span>🧬</span><strong>Transcoder</strong><small>Local File Pipeline</small></article>
+          <article><span>🔌</span><strong>Micro-Control Lab</strong><small>Hardware + Code</small></article>
         </div>
-        <button class="primary-action" data-next-stage="1">Enter WizOS</button>
+        <button id="getStartedBtn" class="primary-action" type="button">Enter WizOS</button>
       </div>
     </section>
 
-    <section id="stage1" class="stage stage-device" aria-label="Choose your device profile">
+    <section id="deviceStage" class="stage device-stage" aria-hidden="true">
       <div class="device-scroll glass">
         <p class="eyebrow">Stage 1</p>
-        <h2>Select Device Profile</h2>
-        <p class="muted">Choose the profile that best matches your screen. The workspace remains fully responsive either way.</p>
-        <button class="device-card" data-device="computer">
-          <span class="device-icon">🖥️</span>
+        <h2>Choose a Device Profile</h2>
+        <p class="muted">Select the surface that matches your current screen. This scroll area is intentionally touch-friendly so the phone option remains reachable on compact displays.</p>
+        <button class="device-card" type="button" data-device="Computer">
+          <span class="device-icon" aria-hidden="true">🖥️</span>
           <strong>Computer</strong>
-          <small>Expanded sheets, dense panels, precision pointer controls.</small>
+          <small>Dense workspace sheets, wide app panels, and pointer-first stacks.</small>
         </button>
-        <button class="device-card" data-device="phone">
-          <span class="device-icon">📱</span>
+        <button class="device-card" type="button" data-device="Phone">
+          <span class="device-icon" aria-hidden="true">📱</span>
           <strong>Phone</strong>
-          <small>Compact two-column launcher, touch-first sheets, hidden native scrollbars.</small>
+          <small>Two-column launcher, compact orbs, touch-first app sheets, and hidden scrollbars.</small>
         </button>
       </div>
     </section>
 
-    <section id="stage2" class="stage stage-workspace" aria-label="WizOS workspace">
-      <div class="workspace-topline">
-        <div><strong>WizOS</strong><span id="deviceLabel">Fluid Workspace</span></div>
-        <time id="systemClock">--:--</time>
-      </div>
-      <div id="launcherGrid" class="launcher-grid" aria-label="Application launcher"></div>
-      <aside id="taskSwitcher" class="task-switcher glass" aria-label="Active application stacks"></aside>
-      <section id="sheet" class="app-sheet glass" aria-live="polite">
-        <div class="sheet-handle"></div>
-        <header class="sheet-header">
-          <div><span id="sheetIcon"></span><h2 id="sheetTitle"></h2></div>
-          <button id="closeSheet" aria-label="Close active sheet">×</button>
-        </header>
-        <div id="sheetBody" class="sheet-body"></div>
+    <section id="desktopStage" class="stage desktop-stage" aria-hidden="true">
+      <header class="workspace-topline">
+        <div>
+          <strong>WizOS</strong>
+          <span id="systemMode">WizOS - Computer Mode</span>
+        </div>
+        <time id="clockDisplay" datetime="">--:--:--</time>
+      </header>
+
+      <section id="launcherGrid" class="launcher-grid" aria-label="Application launcher">
+        <button class="launcher-tile" type="button" data-app="clock"><span class="launcher-orb theme-clock">📈</span><span class="launcher-name">Stocks Shower</span></button>
+        <button class="launcher-tile" type="button" data-app="converter"><span class="launcher-orb theme-converter">🧬</span><span class="launcher-name">Any-to-Any Transcoder</span></button>
+        <button class="launcher-tile" type="button" data-app="notepad"><span class="launcher-orb theme-notepad">🔌</span><span class="launcher-name">Micro-Control Lab</span></button>
+        <button class="launcher-tile" type="button" data-app="ai"><span class="launcher-orb theme-ai">◈</span><span class="launcher-name">Jarvis Terminal</span></button>
+        <button class="launcher-tile" type="button" data-app="calculator"><span class="launcher-orb theme-calculator">🧮</span><span class="launcher-name">Calculator</span></button>
+        <button class="launcher-tile" type="button" data-app="video"><span class="launcher-orb theme-video">🎞️</span><span class="launcher-name">Video Studio</span></button>
+        <button class="launcher-tile" type="button" data-app="audio"><span class="launcher-orb theme-audio">🎙️</span><span class="launcher-name">Audio Studio</span></button>
       </section>
+
+      <aside id="taskSwitcher" class="task-switcher glass" aria-label="Stacks task switcher" aria-hidden="true">
+        <header class="stacks-header">
+          <div><strong>Stacks</strong><small>Active app memory</small></div>
+          <button id="closeStacksBtn" class="icon-button" type="button" aria-label="Close Stacks">×</button>
+        </header>
+        <div id="taskStackList" class="task-stack-list"></div>
+      </aside>
+
+      <div id="appSheetLayer" class="app-sheet-layer" aria-hidden="true"></div>
+
       <nav class="bottom-bar glass" aria-label="System navigation">
-        <button id="navBack" aria-label="Back">◀</button>
-        <button id="navHome" aria-label="Home">●</button>
-        <button id="navStacks" aria-label="Stacks">☱</button>
+        <button id="backButton" type="button" aria-label="Back">◀</button>
+        <button id="homeButton" type="button" aria-label="Home">●</button>
+        <button id="stacksButton" type="button" aria-label="Stacks">☱</button>
       </nav>
     </section>
   </main>
+
   <script src="app.js"></script>
 </body>
 </html>
