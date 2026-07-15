@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WizOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <main id="wizos" class="wizos-shell">
+    <section id="stage0" class="stage stage-welcome active" aria-label="WizOS welcome portal">
+      <div class="portal-card glass">
+        <p class="eyebrow">Custom Fluid Web Operating System</p>
+        <h1>WizOS</h1>
+        <p class="portal-copy">Slide-up multitasking, transparent launcher shortcuts, and heavy-duty system apps in one responsive glass workspace.</p>
+        <div class="quick-previews" aria-label="Quick app previews">
+          <article><span>📈</span><strong>Stocks Shower</strong><small>Live market console</small></article>
+          <article><span>🧬</span><strong>Transcoder</strong><small>Local file engine</small></article>
+          <article><span>🔌</span><strong>Micro Lab</strong><small>Blueprint + code</small></article>
+        </div>
+        <button class="primary-action" data-next-stage="1">Enter WizOS</button>
+      </div>
+    </section>
+
+    <section id="stage1" class="stage stage-device" aria-label="Choose your device profile">
+      <div class="device-scroll glass">
+        <p class="eyebrow">Stage 1</p>
+        <h2>Select Device Profile</h2>
+        <p class="muted">Choose the profile that best matches your screen. The workspace remains fully responsive either way.</p>
+        <button class="device-card" data-device="computer">
+          <span class="device-icon">🖥️</span>
+          <strong>Computer</strong>
+          <small>Expanded sheets, dense panels, precision pointer controls.</small>
+        </button>
+        <button class="device-card" data-device="phone">
+          <span class="device-icon">📱</span>
+          <strong>Phone</strong>
+          <small>Compact two-column launcher, touch-first sheets, hidden native scrollbars.</small>
+        </button>
+      </div>
+    </section>
+
+    <section id="stage2" class="stage stage-workspace" aria-label="WizOS workspace">
+      <div class="workspace-topline">
+        <div><strong>WizOS</strong><span id="deviceLabel">Fluid Workspace</span></div>
+        <time id="systemClock">--:--</time>
+      </div>
+      <div id="launcherGrid" class="launcher-grid" aria-label="Application launcher"></div>
+      <aside id="taskSwitcher" class="task-switcher glass" aria-label="Active application stacks"></aside>
+      <section id="sheet" class="app-sheet glass" aria-live="polite">
+        <div class="sheet-handle"></div>
+        <header class="sheet-header">
+          <div><span id="sheetIcon"></span><h2 id="sheetTitle"></h2></div>
+          <button id="closeSheet" aria-label="Close active sheet">×</button>
+        </header>
+        <div id="sheetBody" class="sheet-body"></div>
+      </section>
+      <nav class="bottom-bar glass" aria-label="System navigation">
+        <button id="navBack" aria-label="Back">◀</button>
+        <button id="navHome" aria-label="Home">●</button>
+        <button id="navStacks" aria-label="Stacks">☱</button>
+      </nav>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
